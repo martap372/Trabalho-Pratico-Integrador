@@ -13,14 +13,23 @@ pipeline {
         stage('Tests') {
             steps {
                 // TODO: criar .venv, instalar requirements*.txt e executar pytest -q
-                echo 'TODO: executar testes Python'
+                sh '''
+                    set -eu
+                    python3 -m venv .venv
+                    .venv/bin/python -m pip install -r requirements.txt -r requirements-dev.txt
+                    .venv/bin/python -m pytest -q
+                '''
             }
         }
         stage('Docker Build') {
             steps {
                 // TODO: docker build com tag natixis-support:ci-${BUILD_NUMBER}
                 // TODO: confirmar imagem criada com docker image inspect
-                echo 'TODO: construir e verificar imagem Docker'
+                sh '''
+                    set -eu
+                    docker build -t "natixis-support:ci-${BUILD_NUMBER}" .
+                    docker image inspect "natixis-support:ci-${BUILD_NUMBER}" --format '{{.Id}}'
+                '''
             }
         }
     }
