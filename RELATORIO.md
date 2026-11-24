@@ -6,21 +6,6 @@ URL do repositorio Git: https://github.com/martap372/Trabalho-Pratico-Integrador
 ## E01 - Ambiente (1 valor)
 Comandos e versoes observadas:
 ![Versões](images/image-1.png)
-docker --version
-Docker version 29.9.2, build a82e528
-
-docker compose version
-Docker Compose version v5.6.1
-
-git --version
-git version 2.56.1.windows.1
-
-docker info
-Client:
- Version:    29.9.2
- Context:    desktop-linux
- Debug Mode: false
-
 A API está em app.py, os testes em test_app.py, na pasta testes, o Compose em compose.yaml e a pipeline em Jenkinsfile.
 
 ## E02 - Dockerfile e container (3 valores)
@@ -50,13 +35,26 @@ Se corrigirmos a porta para 8000, obtemos os seguintes resultados, com o contado
 
 ## E05 - Git (3 valores)
 Branch, hashes de commits, merge e tag v1.0.0:
+![git merge](images/image-15.png)
+Na imagem abaixo podemos ver os dois commits: o commit com hash 2ed8fcb no branch fix/health-info com a tag v1.0.0 e o commit com hash 8af03e9 no main branch.
+![git log](images/image-14.png)
 
 ## E06 - Jenkins SUCCESS (4 valores)
 URL/numero do build, etapas e identificador da imagem construida:
+![Jenkins pipeline](images/image-16.png)
+![build](images/image-17.png)
+O número do build é #3 e a URL é http://localhost:8080/job/natixis-support/lastBuild/.
+O identificador da imagem é o seguinte:
+![docker image inspect](images/image-18.png)
 
 ## E07 - Jenkins FAILURE e recuperacao (2 valores)
 Build FAILURE, etapa que falhou e excerto relevante do log; build SUCCESS apos correcao:
+![Falha](images/image-19.png)
+![Pipeline](images/image-20.png)
+![Erro](images/image-21.png)
+Após correção:
+![Sucesso](images/image-22.png)
 
 ## Verificacao final
-[ ] Dockerfile [ ] compose.yaml [ ] app.py [ ] tests/ [ ] Jenkinsfile
-[ ] Historico Git [ ] Tag v1.0.0 [ ] Evidencias E01-E07
+[x] Dockerfile [x] compose.yaml [x] app.py [x] tests/ [x] Jenkinsfile
+[x] Historico Git [x] Tag v1.0.0 [x] Evidencias E01-E07
